@@ -44,6 +44,8 @@ import { UserDoc } from 'src/modules/user/repository/entities/user.entity';
 import { UserLoginSerialization } from 'src/modules/user/serializations/user.login.serialization';
 import { UserPayloadSerialization } from 'src/modules/user/serializations/user.payload.serialization';
 import { UserService } from 'src/modules/user/services/user.service';
+import { EmailService } from 'src/common/email/services/email.service';
+import { SendEmailDto } from 'src/common/email/dtos/send-email.dto';
 
 @ApiTags('modules.public.user')
 @Controller({
@@ -56,7 +58,8 @@ export class UserPublicController {
         private readonly userService: UserService,
         private readonly authService: AuthService,
         private readonly roleService: RoleService,
-        private readonly settingService: SettingService
+        private readonly settingService: SettingService,
+        private readonly emailService: EmailService
     ) {}
 
     @UserPublicLoginDoc()
@@ -236,6 +239,15 @@ export class UserPublicController {
                 body.password
             );
 
+            const sendEmailDto: SendEmailDto = {
+                to: email,
+                subject: 'Welcome',
+                template: 'welcome.hbs',
+                context: {
+                  name: body.firstName,
+                },
+              };
+
             await this.userService.create(
                 {
                     email,
@@ -247,13 +259,18 @@ export class UserPublicController {
                 password
             );
 
+             await this.emailService.sendEmail(sendEmailDto);
+            
             return;
         } catch (err: any) {
+            console.log(err)
             throw new InternalServerErrorException({
                 statusCode: ENUM_ERROR_STATUS_CODE_ERROR.ERROR_UNKNOWN,
                 message: 'http.serverError.internalServerError',
                 _error: err.message,
             });
+
+
         }
     }
 

@@ -13,7 +13,7 @@ import {
     IsEnum,
 } from 'class-validator';
 import { IsPasswordStrong } from 'src/common/request/validations/request.is-password-strong.validation';
-import { MobileNumberAllowed } from 'src/common/request/validations/request.mobile-number-allowed.validation';
+// import { MobileNumberAllowed } from 'src/common/request/validations/request.mobile-number-allowed.validation';
 import { ENUM_USER_SIGN_UP_FROM } from 'src/modules/user/constants/user.enum.constant';
 
 export class UserCreateDto {
@@ -50,7 +50,7 @@ export class UserCreateDto {
     readonly lastName: string;
 
     @ApiProperty({
-        example: faker.phone.number('62812#########'),
+        example: faker.phone.number('08034#########'),
         required: true,
     })
     @IsString()
@@ -59,7 +59,6 @@ export class UserCreateDto {
     @MaxLength(14)
     @ValidateIf((e) => e.mobileNumber !== '')
     @Type(() => String)
-    @MobileNumberAllowed()
     readonly mobileNumber?: string;
 
     @ApiProperty({

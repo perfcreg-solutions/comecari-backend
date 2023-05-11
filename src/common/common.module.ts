@@ -21,6 +21,7 @@ import { DATABASE_CONNECTION_NAME } from 'src/common/database/constants/database
 import { ENUM_APP_ENVIRONMENT } from 'src/app/constants/app.enum.constant';
 import { APP_LANGUAGE } from 'src/app/constants/app.constant';
 import { PolicyModule } from 'src/common/policy/policy.module';
+import { EmailModule } from 'src/common/email/email.module';
 
 @Module({
     controllers: [],
@@ -166,6 +167,7 @@ import { PolicyModule } from 'src/common/policy/policy.module';
         SettingModule,
         LoggerModule,
         ApiKeyModule,
+        EmailModule,
         AuthModule.forRoot(),
     ],
 })

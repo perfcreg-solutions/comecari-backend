@@ -9,6 +9,8 @@ import RequestConfig from './request.config';
 import DocConfig from './doc.config';
 import DebuggerConfig from './debugger.config';
 import MessageConfig from './message.config';
+import EmailConfig from './email.config';
+import ProductConfig from './product.config';
 
 export default [
     AppConfig,
@@ -22,4 +24,6 @@ export default [
     DocConfig,
     DebuggerConfig,
     MessageConfig,
+    EmailConfig,
+    ProductConfig,
 ];

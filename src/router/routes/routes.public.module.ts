@@ -8,16 +8,17 @@ import { SettingPublicController } from 'src/common/setting/controllers/setting.
 import { UserPublicController } from 'src/modules/user/controllers/user.public.controller';
 import { UserModule } from 'src/modules/user/user.module';
 import { RoleModule } from 'src/modules/role/role.module';
+import { EmailModule } from 'src/common/email/email.module';
 
 @Module({
     controllers: [
         HealthPublicController,
         MessagePublicController,
         SettingPublicController,
-        UserPublicController,
+        UserPublicController
     ],
     providers: [],
     exports: [],
-    imports: [TerminusModule, HealthModule, UserModule, AuthModule, RoleModule],
+    imports: [TerminusModule, HealthModule, UserModule, AuthModule, RoleModule, EmailModule],
 })
 export class RoutesPublicModule {}

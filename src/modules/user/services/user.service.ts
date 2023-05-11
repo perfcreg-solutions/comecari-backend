@@ -372,7 +372,6 @@ export class UserService implements IUserService {
                 create.passwordAttempt = 0;
                 create.mobileNumber = mobileNumber ?? undefined;
                 create.signUpFrom = signUpFrom;
-
                 return create;
             }
         );

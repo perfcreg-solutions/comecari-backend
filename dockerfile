@@ -1,8 +1,8 @@
 FROM node:lts-alpine
-LABEL maintainer "ack@baibay.id"
+LABEL maintainer "oyewo.oluwafem@gmail.com"
 
 WORKDIR /app
-EXPOSE 3000
+EXPOSE 4000
 
 COPY package.json yarn.lock ./
 RUN touch .env

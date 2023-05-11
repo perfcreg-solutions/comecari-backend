@@ -19,7 +19,7 @@ describe('DatabaseOptionsService', () => {
                                 case 'app.env':
                                     return ENUM_APP_ENVIRONMENT.PRODUCTION;
                                 case 'database.host':
-                                    return 'mongodb://localhost:27017';
+                                    return 'mongodb+srv://comecari_user:power007$$@comecari.i7kro9r.mongodb.net/?retryWrites=true&w=majority';
                                 case 'database.name':
                                     return 'test-db';
                                 case 'database.user':
@@ -54,7 +54,7 @@ describe('DatabaseOptionsService', () => {
             const options = service.createOptions();
 
             expect(options).toMatchObject({
-                uri: 'mongodb://localhost:27017/test-db?retryWrites=true&w=majority',
+                uri: 'mongodb+srv://comecari_user:power007$$@comecari.i7kro9r.mongodb.net/?retryWrites=true&w=majority',
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 serverSelectionTimeoutMS: 5000,
@@ -76,7 +76,7 @@ describe('DatabaseOptionsService', () => {
                         case 'app.env':
                             return ENUM_APP_ENVIRONMENT.DEVELOPMENT;
                         case 'database.host':
-                            return 'mongodb://localhost:27017';
+                            return 'mongodb+srv://comecari_user:power007$$@comecari.i7kro9r.mongodb.net/?retryWrites=true&w=majority';
                         case 'database.name':
                             return 'test-db';
                         case 'database.debug':
@@ -91,7 +91,7 @@ describe('DatabaseOptionsService', () => {
             const options = service.createOptions();
 
             expect(options).toMatchObject({
-                uri: 'mongodb://localhost:27017/test-db',
+                uri: 'mongodb+srv://comecari_user:power007$$@comecari.i7kro9r.mongodb.net/?retryWrites=true&w=majority',
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 serverSelectionTimeoutMS: 5000,

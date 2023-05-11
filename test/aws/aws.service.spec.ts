@@ -16,6 +16,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { IAwsS3PutItemOptions } from 'src/common/aws/interfaces/aws.interface';
 import { AwsS3Serialization } from 'src/common/aws/serializations/aws.s3.serialization';
 import { AwsS3Service } from 'src/common/aws/services/aws.s3.service';
+// import { Blob } from 'buffer';
+import { Readable } from 'stream';
 
 describe('AwsS3Service', () => {
     const bucket = 'test-bucket';
@@ -217,7 +219,7 @@ describe('AwsS3Service', () => {
 
     describe('getItemInBucket', () => {
         it('should return Readable', async () => {
-            const file = new Blob(['test-body']);
+            const file = Readable.from('test-body');
             const data: GetObjectOutput = {
                 ContentType: 'image/png',
                 Body: file,
@@ -233,7 +235,7 @@ describe('AwsS3Service', () => {
         });
 
         it('should return Readable, start path with /', async () => {
-            const file = new Blob(['test-body']);
+            const file = Readable.from('test-body');
             const data: GetObjectOutput = {
                 ContentType: 'image/png',
                 Body: file,
@@ -252,7 +254,7 @@ describe('AwsS3Service', () => {
         });
 
         it('should accept path and return correct result', async () => {
-            const file = new Blob(['test-body']);
+            const file = Readable.from('test-body');
             const data: GetObjectOutput = {
                 ContentType: 'image/png',
                 Body: file,
@@ -571,7 +573,7 @@ describe('AwsS3Service', () => {
 
     describe('uploadPart', () => {
         it('should return multipart parts object', async () => {
-            const content = new Blob(['My content']);
+            const content = Readable.from('content');
 
             const data: UploadPartCommandOutput = {
                 $metadata: {},
