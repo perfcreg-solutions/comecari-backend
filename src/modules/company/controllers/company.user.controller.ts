@@ -66,18 +66,20 @@ export class CompanyUserController {
             });
         }
         try {
-            await this.companyService.create(
-                {
-                    companyAddress: body.companyAddress,
-                    companyDescription: body.companyDescription,
-                    companyName: body.companyName,
-                    user: user._id
-                }
-            );
+            // await this.companyService.create(
+            //     {
+            //         companyAddress: body.companyAddress,
+            //         companyDescription: body.companyDescription,
+            //         companyName: body.companyName,
+            //         user: user._id
+            //     }
+            // );
+            console.log(role)
             await this.userService.updateRole(user, {
                 role: role._id,
             });
         } catch (error) {
+            console.log(error);
             throw new InternalServerErrorException({
                 statusCode: ENUM_ERROR_STATUS_CODE_ERROR.ERROR_UNKNOWN,
                 message: 'http.serverError.internalServerError',
