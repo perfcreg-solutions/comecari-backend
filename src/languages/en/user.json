@@ -34,8 +34,12 @@
         "isActiveInvalid": "User is active invalid",
         "usernameExist": "Username exist",
         "newPasswordMustDifference": "Old password must difference"
+<<<<<<< HEAD
         
     },
     "addPhoneNumber": "User Add a phone number",
     "verifyPhoneNumber": "User Verify a phone number"
+=======
+    }
+>>>>>>> c1983f472b816ae0fbfe023dea86988cc062ba8a
 }
