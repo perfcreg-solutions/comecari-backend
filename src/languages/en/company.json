@@ -1,0 +1,9 @@
+{
+    "create": "You successfully create a new company",
+    "update": "You successfully update a company information",
+    "get": "Get Company Success.",
+    "error": {
+        "companyExist": "This User already has an existing company"
+    }
+    
+}
